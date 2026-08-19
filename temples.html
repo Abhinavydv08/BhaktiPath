@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temples – BhaktiPath</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Philosopher:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf0;
+      margin: 0;
+      color: #333;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(90deg, #ff9933, #ffcc66);
+      padding: 15px 50px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .navbar .logo {
+      font-family: 'Philosopher', sans-serif;
+      font-size: 28px;
+      color: white;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover, .active {
+      color: #3b1d00;
+    }
+
+    .content {
+      padding: 60px 10%;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff6600;
+      font-family: 'Philosopher';
+      margin-bottom: 40px;
+    }
+
+    .temple-card {
+      background: #fff8e7;
+      border: 1px solid #ffcc66;
+      border-radius: 15px;
+      margin: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: all 0.4s ease;
+      width: 300px;
+      height: 300px;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .temple-card.expanded {
+      height: auto;
+      width: 100%;
+      max-width: 800px;
+      display: block;
+      margin: 30px auto;
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .temple-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid #ffcc66;
+      transition: height 0.3s ease;
+    }
+
+    .temple-card.expanded .temple-img {
+      height: 350px;
+    }
+
+    .temple-content {
+      padding: 20px;
+      text-align: left;
+    }
+
+    .temple-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #d65a00;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .temple-story {
+      display: none;
+      color: #444;
+      line-height: 1.6;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .temple-card.expanded .temple-story {
+      display: block;
+    }
+
+    footer {
+      background: #3b1d00;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .temple-card {
+        width: 90%;
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">🕉️ BhaktiPath</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="deities.html">Deities</a></li>
+        <li><a href="festivals.html">Festivals</a></li>
+        <li><a href="bhajans.html">Bhajans</a></li>
+        <li><a href="texts.html">Sacred Texts</a></li>
+        <li><a href="temples.html" class="active">Temples</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="content">
+    <h1>Famous Temples of India</h1>
+
+    <div class="temple-card" onclick="toggleExpand(this)">
+      <img src="kedarnath.jpg" alt="Kedarnath Temple" class="temple-img">
+      <div class="temple-content">
+        <div class="temple-title">🏔️ Kedarnath Temple – Uttarakhand</div>
+        <div class="temple-story">
+          Kedarnath Temple, dedicated to Lord Shiva, is one of the twelve Jyotirlingas of India.
+          It is believed to have been built by the Pandavas and later revived by Adi Shankaracharya in the 8th century.
+          Located near the Mandakini River, it is surrounded by snow-capped peaks and is part of the Char Dham Yatra.
+        </div>
+      </div>
+    </div>
+
+    <div class="temple-card" onclick="toggleExpand(this)">
+      <img src="somnath.jpg" alt="Somnath Temple" class="temple-img">
+      <div class="temple-content">
+        <div class="temple-title">🕉️ Somnath Temple – Gujarat</div>
+        <div class="temple-story">
+          The Somnath Temple, also one of the twelve Jyotirlingas, has been destroyed and rebuilt several times in history.
+          The current structure was reconstructed in 1951. It represents the spirit of faith and resilience in Hinduism.
+        </div>
+      </div>
+    </div>
+
+    <div class="temple-card" onclick="toggleExpand(this)">
+      <img src="Jagannath.jpeg" alt="Jagannath Temple" class="temple-img">
+      <div class="temple-content">
+        <div class="temple-title">🚩 Jagannath Temple – Puri, Odisha</div>
+        <div class="temple-story">
+          Built in the 12th century by King Anantavarman Chodaganga Deva, this temple is dedicated to Lord Jagannath,
+          a form of Lord Vishnu. It is famous for the annual Rath Yatra, where deities are taken out in grand chariots.
+        </div>
+      </div>
+    </div>
+
+    <div class="temple-card" onclick="toggleExpand(this)">
+      <img src="tirupati balaji.jpg" alt="Tirupati Balaji Temple" class="temple-img">
+      <div class="temple-content">
+        <div class="temple-title">💰 Tirupati Balaji – Andhra Pradesh</div>
+        <div class="temple-story">
+          The Tirumala Venkateswara Temple, dedicated to Lord Vishnu, is one of the richest temples in the world.
+          Built around the 9th century, it attracts millions of devotees annually who come to seek blessings of Lord Balaji.
+        </div>
+      </div>
+    </div>
+
+    <div class="temple-card" onclick="toggleExpand(this)">
+      <img src="Meenakshi Temple.jpg" alt="Meenakshi Temple" class="temple-img">
+      <div class="temple-content">
+        <div class="temple-title">🌸 Meenakshi Temple – Madurai, Tamil Nadu</div>
+        <div class="temple-story">
+          Dedicated to Goddess Meenakshi (a form of Parvati) and Lord Sundareshwar (Shiva),
+          this temple is a masterpiece of Dravidian architecture. It was built by King Kulasekara Pandya in the 6th century CE.
+        </div>
+      </div>
+    </div>
+
+    <div class="temple-card" onclick="toggleExpand(this)">
+      <img src="Shri Krishna Janmabhoomi.jpg" alt="Krishna Janmabhoomi Temple" class="temple-img">
+      <div class="temple-content">
+        <div class="temple-title">🌿 Shri Krishna Janmabhoomi – Mathura, Uttar Pradesh</div>
+        <div class="temple-story">
+          Located in the birthplace of Lord Krishna, this temple marks the sacred site where Lord Krishna was born.
+          It has been rebuilt multiple times and remains a central pilgrimage spot for Krishna devotees worldwide.
+        </div>
+      </div>
+    </div>
+
+    <div class="temple-card" onclick="toggleExpand(this)">
+      <img src="Banke Bihari Temple .jpg" alt="Banke Bihari Temple" class="temple-img">
+      <div class="temple-content">
+        <div class="temple-title">🎵 Banke Bihari Temple – Vrindavan, Uttar Pradesh</div>
+        <div class="temple-story">
+          Dedicated to Lord Krishna as Banke Bihari, this temple was built in the 19th century by Swami Haridas.
+          The idol here was revealed by Swami Haridas himself, representing Krishna in his most charming form.
+        </div>
+      </div>
+    </div>
+
+    <div class="temple-card" onclick="toggleExpand(this)">
+      <img src="Vaishno Devi Temple .jpg" alt="Vaishno Devi Temple" class="temple-img">
+      <div class="temple-content">
+        <div class="temple-title">🏔️ Vaishno Devi Temple – Jammu & Kashmir</div>
+        <div class="temple-story">
+          This temple is dedicated to Goddess Vaishno Devi and located inside a cave in Trikuta Mountains.
+          It is one of the holiest shrines in India, believed to grant all wishes of the devotees who visit with pure heart.
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <footer><p>© 2025 BhaktiPath | A Journey Towards Spirituality</p></footer>
+
+  <script>
+    function toggleExpand(card) {
+
+      document.querySelectorAll('.temple-card').forEach(c => c.classList.remove('expanded'));
+      card.classList.toggle('expanded');
+    }
+  </script>
+</body>
+</html>

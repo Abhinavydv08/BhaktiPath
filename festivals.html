@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Festivals – BhaktiPath</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Philosopher:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf0;
+      margin: 0;
+      color: #333;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(90deg, #ff9933, #ffcc66);
+      padding: 15px 50px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .navbar .logo {
+      font-family: 'Philosopher', sans-serif;
+      font-size: 28px;
+      color: white;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover, .active {
+      color: #3b1d00;
+    }
+    .content {
+      padding: 60px 5%;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    h1 {
+      color: #ff6600;
+      font-family: 'Philosopher';
+      margin-bottom: 40px;
+      width: 100%;
+    }
+    .festival-card {
+      background: #fff8e7;
+      border: 1px solid #ffcc66;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: all 0.4s ease;
+      width: 280px;
+      height: 320px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .festival-card.expanded {
+      width: 90%;
+      height: auto;
+      transition: all 0.5s ease;
+    }
+
+    .festival-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid #ffcc66;
+    }
+
+    .festival-content {
+      padding: 15px;
+      text-align: left;
+    }
+
+    .festival-title {
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: #d65a00;
+      margin-bottom: 8px;
+    }
+
+    .festival-story {
+      display: none;
+      color: #444;
+      line-height: 1.6;
+      animation: fadeIn 0.5s ease;
+      margin-top: 10px;
+    }
+
+    footer {
+      background: #3b1d00;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .festival-card {
+        width: 90%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">🕉️ BhaktiPath</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="deities.html">Deities</a></li>
+        <li><a href="festivals.html" class="active">Festivals</a></li>
+        <li><a href="bhajans.html">Bhajans</a></li>
+        <li><a href="texts.html">Sacred Texts</a></li>
+        <li><a href="temples.html">Temples</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="content">
+    <h1>Major Hindu Festivals</h1>
+
+    <div class="festival-card" onclick="toggleStory(this, 'diwali')">
+      <img src="diwali .webp" alt="Diwali" class="festival-img">
+      <div class="festival-content">
+        <div class="festival-title">🪔 Diwali – Festival of Lights</div>
+        <div id="diwali" class="festival-story">
+          Diwali celebrates Lord Rama’s return to Ayodhya after 14 years of exile and his victory over Ravana.
+          People light diyas to symbolize the triumph of light over darkness and good over evil.
+          It also honors Goddess Lakshmi, the goddess of wealth and prosperity, with prayers and sweets.
+        </div>
+      </div>
+    </div>
+
+    <div class="festival-card" onclick="toggleStory(this, 'holi')">
+      <img src="holi .jpg" alt="Holi" class="festival-img">
+      <div class="festival-content">
+        <div class="festival-title">🌈 Holi – Festival of Colors</div>
+        <div id="holi" class="festival-story">
+          Holi celebrates Prahlad’s devotion and Holika’s fall to symbolize faith’s victory over evil.
+          People throw colors, dance, and enjoy sweets, marking the start of spring and unity in diversity.
+        </div>
+      </div>
+    </div>
+
+    <div class="festival-card" onclick="toggleStory(this, 'navratri')">
+      <img src="navratri.jpg" alt="Navratri" class="festival-img">
+      <div class="festival-content">
+        <div class="festival-title">💃 Navratri – Nine Nights of Devotion</div>
+        <div id="navratri" class="festival-story">
+          Navratri is celebrated across nine nights in honor of Goddess Durga’s nine forms.
+          Devotees observe fasting, perform Garba, and worship divine feminine energy culminating in Dussehra.
+        </div>
+      </div>
+    </div>
+
+    <div class="festival-card" onclick="toggleStory(this, 'janmashtami')">
+      <img src="janmasthmi .jpg" alt="Janmashtami" class="festival-img">
+      <div class="festival-content">
+        <div class="festival-title">🎵 Janmashtami – Birth of Lord Krishna</div>
+        <div id="janmashtami" class="festival-story">
+          Janmashtami marks the birth of Lord Krishna, the eighth incarnation of Lord Vishnu.
+          Devotees fast, sing bhajans, and recreate scenes from Krishna’s life, especially the Dahi Handi event.
+        </div>
+      </div>
+    </div>
+
+    <div class="festival-card" onclick="toggleStory(this, 'ganesh')">
+      <img src="ganesh chathrthi .jpg" alt="Ganesh Chaturthi" class="festival-img">
+      <div class="festival-content">
+        <div class="festival-title">🐘 Ganesh Chaturthi – Birth of Lord Ganesha</div>
+        <div id="ganesh" class="festival-story">
+          Ganesh Chaturthi celebrates the birth of Lord Ganesha, remover of obstacles.
+          Clay idols are worshipped for 10 days before immersion, representing life, humility, and new beginnings.
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <footer><p>© 2025 BhaktiPath | A Journey Towards Spirituality</p></footer>
+
+  <script>
+    function toggleStory(card, id) {
+      const story = document.getElementById(id);
+      const isVisible = story.style.display === 'block';
+      document.querySelectorAll('.festival-story').forEach(s => s.style.display = 'none');
+      document.querySelectorAll('.festival-card').forEach(c => c.classList.remove('expanded'));
+      if (!isVisible) {
+        story.style.display = 'block';
+        card.classList.add('expanded');
+      }
+    }
+  </script>
+</body>
+</html>

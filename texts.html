@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sacred Texts – BhaktiPath</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf0;
+      margin: 0;
+      color: #333;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(90deg, #ff9933, #ffcc66);
+      padding: 15px 50px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .navbar .logo {
+      font-family: 'Philosopher', sans-serif;
+      font-size: 28px;
+      color: white;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .nav-links a:hover, .active {
+      color: #3b1d00;
+    }
+    .content {
+      padding: 60px 5%;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+    h1 {
+      color: #ff6600;
+      font-family: 'Philosopher';
+      margin-bottom: 30px;
+      width: 100%;
+    }
+    p.intro {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 40px;
+      width: 100%;
+    }
+    .text-card {
+      background: #fff8e7;
+      border: 1px solid #ffcc66;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 320px;
+    }
+    .text-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+    .text-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-bottom: 1px solid #ffcc66;
+    }
+    .text-content {
+      padding: 20px;
+      text-align: left;
+      transition: all 0.4s ease;
+      overflow: hidden;
+    }
+    .text-title {
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: #d65a00;
+      margin-bottom: 10px;
+    }
+    .text-detail {
+      max-height: 0;
+      overflow: hidden;
+      color: #444;
+      line-height: 1.6;
+      transition: max-height 0.6s ease;
+    }
+    .text-card.active .text-detail {
+      max-height: 700px; 
+    }
+    footer {
+      background: #3b1d00;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+    }
+    @media (max-width: 768px) {
+      .text-card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">🕉️ BhaktiPath</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="deities.html">Deities</a></li>
+        <li><a href="festivals.html">Festivals</a></li>
+        <li><a href="bhajans.html">Bhajans</a></li>
+        <li><a href="texts.html" class="active">Sacred Texts</a></li>
+        <li><a href="temples.html">Temples</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="content">
+    <h1>📚 Hindu Sacred Texts</h1>
+    <p class="intro">Explore the timeless wisdom of India's ancient scriptures — guiding humanity toward truth and self-realization.</p>
+    <div class="text-card" onclick="toggleCard(this)">
+      <img src="bhagwat geeta.jpg" alt="Bhagavad Gita" class="text-img">
+      <div class="text-content">
+        <div class="text-title">📖 Bhagavad Gita</div>
+        <div class="text-detail">
+          <strong>Author:</strong> Sage Vyasa (as part of the Mahabharata)<br>
+          <strong>Written in:</strong> Sanskrit<br>
+          <strong>Approx. Period:</strong> 2nd century BCE<br><br>
+          The *Bhagavad Gita* (“Song of God”) is a conversation between Lord Krishna and the warrior Arjuna on the battlefield of Kurukshetra.  
+          It reveals deep spiritual truths about duty (dharma), righteousness, and devotion.  
+          The Gita teaches that one must act selflessly without attachment to the results of actions — the essence of *Karma Yoga*.  
+          It also describes *Bhakti Yoga* (path of devotion) and *Jnana Yoga* (path of knowledge), offering the ultimate guide to living a balanced spiritual life.
+        </div>
+      </div>
+    </div>
+
+    <div class="text-card" onclick="toggleCard(this)">
+      <img src="ramchritramans.jpg" alt="Ramayana" class="text-img">
+      <div class="text-content">
+        <div class="text-title">🕉️ Ramayana</div>
+        <div class="text-detail">
+          <strong>Author:</strong> Sage Valmiki<br>
+          <strong>Written in:</strong> Sanskrit<br>
+          <strong>Approx. Period:</strong> Around 500 BCE<br><br>
+          The *Ramayana* narrates the divine story of Lord Rama, his wife Sita, and his loyal companion Hanuman.  
+          It portrays the triumph of virtue over vice, symbolized by Rama’s victory over Ravana, the ten-headed demon king.  
+          Beyond being an epic, it’s a moral compass that emphasizes righteousness (*Dharma*), sacrifice, and love.  
+          The Ramayana has inspired countless adaptations in various languages, including the *Ramcharitmanas* by Tulsidas.
+        </div>
+      </div>
+    </div>
+
+    <div class="text-card" onclick="toggleCard(this)">
+      <img src="vedas.jpg" alt="Vedas" class="text-img">
+      <div class="text-content">
+        <div class="text-title">📜 The Vedas</div>
+        <div class="text-detail">
+          <strong>Authors:</strong> Ancient Rishis (sages)<br>
+          <strong>Written in:</strong> Vedic Sanskrit<br>
+          <strong>Approx. Period:</strong> 1500–500 BCE<br><br>
+          The *Vedas* are the foundation of Hindu philosophy and rituals.  
+          There are four main Vedas — *Rigveda, Samaveda, Yajurveda,* and *Atharvaveda.*  
+          They contain hymns, chants, rituals, and philosophical ideas revealed to the sages through divine inspiration (*Shruti*).  
+          The Vedas emphasize cosmic order (*Rita*), sacrifice (*Yajna*), and knowledge (*Vidya*) as the path to divine realization.  
+          Each Veda is further divided into *Samhitas, Brahmanas, Aranyakas,* and *Upanishads*.
+        </div>
+      </div>
+    </div>
+
+    <div class="text-card" onclick="toggleCard(this)">
+      <img src="upnishads.jpg" alt="Upanishads" class="text-img">
+      <div class="text-content">
+        <div class="text-title">🔱 The Upanishads</div>
+        <div class="text-detail">
+          <strong>Authors:</strong> Various sages and philosophers<br>
+          <strong>Written in:</strong> Sanskrit<br>
+          <strong>Approx. Period:</strong> 800–200 BCE<br><br>
+          The *Upanishads* form the concluding portion of the Vedas, exploring the nature of ultimate reality (*Brahman*) and the individual soul (*Atman*).  
+          They teach that the essence of every being is divine and that realizing this unity leads to *Moksha* (liberation).  
+          Key concepts include “Tat Tvam Asi” (Thou art that) and “Aham Brahmasmi” (I am Brahman).  
+          Some of the principal Upanishads include *Isha, Kena, Chandogya,* and *Brihadaranyaka*.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer><p>© 2025 BhaktiPath | A Journey Towards Spirituality</p></footer>
+
+  <script>
+    function toggleCard(card) {
+      const allCards = document.querySelectorAll('.text-card');
+      allCards.forEach(c => {
+        if (c !== card) c.classList.remove('active');
+      });
+      card.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

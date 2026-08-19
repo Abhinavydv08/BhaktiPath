@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deities – BhaktiPath</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    
+    .modal-backdrop {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+      display: none; align-items: center; justify-content: center; z-index: 2000;
+    }
+    .modal {
+      background: #fffaf3; width: 90%; max-width: 820px; border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25); overflow: auto; max-height: 90vh;
+    }
+    .modal-header {
+      display:flex; justify-content:space-between; align-items:center; padding:14px 18px;
+      border-bottom:1px solid rgba(0,0,0,0.06);
+    }
+    .modal-body { padding: 18px; color:#333; line-height:1.6; }
+    .modal .close-btn {
+      background:#ff9933;color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;
+    }
+    .deity-img-large { width:120px;height:120px;object-fit:cover;border-radius:8px;margin-right:14px; }
+    .modal-meta { display:flex; align-items:center; gap:12px; }
+    .section-title { font-weight:700; margin-top:12px; color:#cc6600; }
+    
+    .card { cursor: pointer; transition: transform .12s ease; }
+    .card:hover { transform: translateY(-6px); }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">🕉️ BhaktiPath</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="deities.html" class="active">Deities</a></li>
+        <li><a href="festivals.html">Festivals</a></li>
+        <li><a href="bhajans.html">Bhajans</a></li>
+        <li><a href="texts.html">Sacred Texts</a></li>
+        <li><a href="temples.html">Temples</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content">
+    <h1>Divine Deities</h1>
+
+    
+    <div class="grid" id="deityGrid">
+      
+      <div class="card" data-id="ganesha" onclick="openBio('ganesha')">
+        <img src="ganesh jii.avif" alt="Lord Ganesha">
+        <h3>Lord Ganesha</h3>
+        <p>Remover of obstacles, god of wisdom and new beginnings.</p>
+      </div>
+
+      <div class="card" data-id="shiva" onclick="openBio('shiva')">
+        <img src="shiv jiii.png" alt="Lord Shiva">
+        <h3>Lord Shiva</h3>
+        <p>Lord of meditation and transformation — the cosmic dancer (Nataraja).</p>
+      </div>
+
+      <div class="card" data-id="vishnu" onclick="openBio('vishnu')">
+        <img src="vishnu jii .jpg" alt="Lord Vishnu">
+        <h3>Lord Vishnu</h3>
+        <p>The preserver — manifests through avatars such as Rama and Krishna.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer><p>© 2025 BhaktiPath</p></footer>
+
+  <div id="bioModalBackdrop" class="modal-backdrop" onclick="closeBio(event)">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <div id="modalTitleWrap" style="display:flex;align-items:center;gap:12px">
+          <img id="modalDeityImg" class="deity-img-large" src="" alt="">
+          <div>
+            <div id="modalTitle" style="font-size:20px;font-weight:700"></div>
+            <div id="modalSubtitle" style="font-size:13px;color:#666"></div>
+          </div>
+        </div>
+        <div>
+          <button class="close-btn" onclick="closeBio()">Close</button>
+        </div>
+      </div>
+
+      <div class="modal-body" id="modalBody">
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+   
+    const deityBios = {
+      ganesha: {
+        name: "Lord Ganesha",
+        subtitle: "Vighnaharta — Remover of Obstacles",
+        img: "ganesh jii.avif",
+        birth: "Ganesha is born of Goddess Parvati. There are multiple Puranic accounts: one describes him formed by Parvati from sandalwood paste; another describes Shiva creating him. He was later beheaded by Shiva and given the head of an elephant, symbolising wisdom and strength.",
+        life: "Beloved son of Shiva and Parvati, Ganesha is worshipped at the start of all major undertakings. He is associated with intellect, writing (patron of scribes), and the removal of obstacles. Festivals: Ganesh Chaturthi is the major festival celebrating his birth.",
+        deeds: "Symbolic acts include blessing devotees, granting success, and protecting homes. His mount is the mouse (Mushika), symbolizing humility overcoming pride.",
+        death: "Lord Ganesha is a deity beyond mortal death; Puranic narratives describe cycles and lila rather than a mortal end. Devotees remember his teachings and celebrate his presence through rituals."
+      },
+      shiva: {
+        name: "Lord Shiva",
+        subtitle: "Mahadeva — The Auspicious One",
+        img: "shiv jiii.png",
+        birth: "Shiva is one of the principal deities of the Trimurti (Brahma, Vishnu, Shiva). Classical texts describe him as beyond birth, an eternal reality. Stories of his origin vary: he is often considered the supreme yogi dwelling on Mount Kailash.",
+        life: "Shiva embodies asceticism, meditation, and the dissolution aspect of the cosmos. He is also a householder with Goddess Parvati and sons Ganesha and Kartikeya. Famous episodes include the tandava (cosmic dance), Samudra Manthan, and swallowing the poison (halahala) to save the world.",
+        deeds: "He destroys ignorance and transforms creation to pave the way for beneficial renewal. He is worshipped as Shiva Lingam and in many sacred places like Kedarnath, Kashi (Varanasi).",
+        death: "As a supreme deity, Shiva transcends birth and death. His legends convey moral and spiritual truths rather than historical endpoints."
+      },
+      vishnu: {
+        name: "Lord Vishnu",
+        subtitle: "The Preserver — Protector of Dharma",
+        img: "vishnu jii .jpg",
+        birth: "Vishnu is considered the eternal sustainer of the universe. Puranic accounts speak of his cosmic form (Vishvarupa) and avatars. He appears in different ages (yugas) to restore dharma.",
+        life: "Vishnu's principal avatars include Rama (Ramayana) and Krishna (Mahabharata and Bhagavad Gita). Each avatar has its own life story: Rama as the ideal king, Krishna as friend, philosopher and guide.",
+        deeds: "Vishnu descends in various forms (Dashavatara) to protect righteous beings and punish injustice. Temples like Tirupati, Srirangam, and many Vishnu shrines celebrate his leelas.",
+        death: "Being a supreme deity, Vishnu is beyond mortal death; his avatars fulfil cosmic purposes and then return to the divine source."
+      } 
+    };
+    function openBio(id) {
+      const bio = deityBios[id];
+      if(!bio) return;
+      document.getElementById('modalTitle').textContent = bio.name;
+      document.getElementById('modalSubtitle').textContent = bio.subtitle || '';
+      document.getElementById('modalDeityImg').src = bio.img;
+      document.getElementById('modalDeityImg').alt = bio.name;
+     
+      const html = `
+        <div class="section">
+          <div class="section-title">Birth / Origin</div>
+          <div>${bio.birth || '—'}</div>
+        </div>
+        <div class="section">
+          <div class="section-title">Life & Key Episodes</div>
+          <div>${bio.life || '—'}</div>
+        </div>
+        <div class="section">
+          <div class="section-title">Major Deeds / Teachings</div>
+          <div>${bio.deeds || '—'}</div>
+        </div>
+        <div class="section">
+          <div class="section-title">Death / Legacy</div>
+          <div>${bio.death || '—'}</div>
+        </div>
+      `;
+      document.getElementById('modalBody').innerHTML = html;
+      
+      const backdrop = document.getElementById('bioModalBackdrop');
+      backdrop.style.display = 'flex';
+    
+      document.getElementById('modalTitle').focus();
+    }
+    function closeBio(e){
+      if(!e || e.target.id === 'bioModalBackdrop' || e.target.classList.contains('close-btn')){
+        document.getElementById('bioModalBackdrop').style.display = 'none';
+      }
+    }
+    document.addEventListener('keydown', function(ev){
+      if(ev.key === 'Escape'){
+        document.getElementById('bioModalBackdrop').style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

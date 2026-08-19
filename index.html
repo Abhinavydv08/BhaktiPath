@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BhaktiPath – A Journey Towards Spirituality</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fffaf0;
+      color: #333;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(90deg, #ff9933, #ffcc66);
+      padding: 15px 50px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .navbar .logo {
+      font-family: 'Philosopher', sans-serif;
+      font-size: 28px;
+      color: white;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .nav-links a:hover, .active {
+      color: #3b1d00;
+      font-weight: 600;
+    }
+    .hero {
+      height: 90vh;
+      background: url('https://i.pinimg.com/736x/4f/ac/5a/4fac5aeb273cb11c28d43075f6a5c25f.jpg') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+      position: relative;
+      text-align: center;
+      z-index: 2;
+      animation: fadeIn 2s ease;
+    }
+    .hero-content h1 {
+      font-family: 'Philosopher', sans-serif;
+      font-size: 3rem;
+      color: #ffd700;
+    }
+    .hero-content span {
+      color: #ff9933;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #fff8dc;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: #ff9933;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff6600;
+      transform: scale(1.05);
+    }
+    .about {
+      padding: 120px 30%;
+      text-align: center;
+      background: #fff8e7;
+    }
+
+    .about h2 {
+      font-family: 'Philosopher';
+      color: #ff6600;
+      margin-bottom: 20px;
+    }
+    .shlok-section {
+      background: linear-gradient(135deg, #ffcc66, #ff9966);
+      padding: 60px 20px;
+      color: white;
+      text-align: center;
+    }
+    .shlok-section h2 {
+      font-family: 'Philosopher';
+      margin-bottom: 15px;
+    }
+    #dailyShlok {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin: 20px auto;
+      width: 80%;
+      max-width: 600px;
+      background: rgba(255,255,255,0.2);
+      padding: 15px;
+      border-radius: 10px;
+      transition: opacity 0.5s ease;
+    }
+    .shlok-section button {
+      margin-top: 15px;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 25px;
+      background: white;
+      color: #ff6600;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .shlok-section button:hover {
+      background: #ff6600;
+      color: white;
+    }
+    footer {
+      background: #3b1d00;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">🕉️ BhaktiPath</div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="deities.html">Deities</a></li>
+        <li><a href="festivals.html">Festivals</a></li>
+        <li><a href="bhajans.html">Bhajans</a></li>
+        <li><a href="texts.html">Sacred Texts</a></li>
+        <li><a href="temples.html">Temples</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to <span>BhaktiPath</span></h1>
+      <p>Embark on a spiritual journey through devotion, culture, and divine wisdom.</p>
+      <a href="deities.html" class="btn">Start Your Journey</a>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>About BhaktiPath</h2>
+    <p>
+      BhaktiPath is a serene digital space for seekers and devotees. Discover Hindu deities,
+      sacred temples, timeless scriptures, and bhajans that connect you to your spiritual essence.
+    </p>
+  </section>
+
+  <section class="shlok-section">
+    <h2>🕉️ Today's Shlok</h2>
+    <p id="dailyShlok">Click below to receive your daily inspiration.</p>
+    <button onclick="generateShlok()">Show Shlok</button>
+  </section>
+
+  <footer>
+    <p>© 2025 BhaktiPath | A Journey Towards Spirituality | Designed with ❤️</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>/.
